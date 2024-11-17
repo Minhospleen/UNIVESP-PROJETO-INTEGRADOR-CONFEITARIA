@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Precificação</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1; /* Fundo rosa claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: #555;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input[type="button"] {
+            background-color: #800080; /* Roxo */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #4b0082; /* Roxo mais escuro */
+        }
+
+        #calcularPV {
+            background-color: #f9f9f9;
+            color: #333;
+            border: 1px solid #ccc;
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Ajustando o layout principal */
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Precificação</h1>
+        <h4>Ovo</h4>
+        <input type="text" id="qO" placeholder="Quantidade usada">
+        <input type="text" id="vO" placeholder="Valor (R$)">
+        <input type="text" id="qOC" placeholder="Quantidade comprada">
+        
+        <h4>Leite</h4>
+        <input type="text" id="qL" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vL" placeholder="Valor do leite (R$)">
+        
+        <h4>Farinha</h4>
+        <input type="text" id="qF" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vF" placeholder="Valor da farinha (R$)">
+        
+        <h4>Açúcar</h4>
+        <input type="text" id="qA" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vA" placeholder="Valor do açúcar (R$)">
+        
+        <h4>Fermento</h4>
+        <input type="text" id="qFe" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vFe" placeholder="Valor do fermento (R$)">
+        
+        <h4>Calda</h4>
+        <input type="text" id="qC" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vC" placeholder="Valor da calda (R$)">
+        
+        <h4>Chantilly</h4>
+        <input type="text" id="qCha" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vCha" placeholder="Valor do chantilly (R$)">
+        
+        <h4>Chocolate</h4>
+        <input type="text" id="qCho" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vCho" placeholder="Valor do chocolate (R$)">
+        
+        <h4>Coco</h4>
+        <input type="text" id="qCo" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vCo" placeholder="Valor do coco (R$)">
+        
+        <h4>Fruta</h4>
+        <input type="text" id="qFr" placeholder="Quantidade usada (grama)">
+        <input type="text" id="vFr" placeholder="Valor da fruta (R$)">
+        
+        <h4>Embalagem</h4>
+        <input type="text" id="qEm" placeholder="Quantidade usada">
+        <input type="text" id="vEm" placeholder="Valor da embalagem (R$)">
+        
+        <h4>Tempo de Preparo</h4>
+        <input type="text" id="tP" placeholder="Tempo em minutos">
+        
+        <h4>Lucro</h4>
+        <input type="text" id="L" placeholder="Lucro desejado (%)">
+        
+        <input type="button" value="Preço de venda" onclick="calcularPV()">
+        <input type="text" id="calcularPV" placeholder="Preço de Venda" readonly>
+    </div>
+</body>
+</html>

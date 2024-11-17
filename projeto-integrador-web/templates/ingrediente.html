@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Encomenda</title>
+    <style>
+        /* Estilo para o corpo */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1; /* Fundo rosa claro */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Estilo do formulário */
+        form {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #800080; /* Roxo */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #4b0082; /* Roxo mais escuro */
+        }
+    </style>
+</head>
+<body>
+    <form id="ingrediente-form" action="/cadastrar-ingrediente" method="POST">
+        <h2>Formulário de Encomenda</h2>
+        
+        <label for="produto">Produto:</label>
+        <input type="text" id="produto" name="produto" required>
+
+        <label for="base">Base:</label>
+        <input type="text" id="base" name="base" required>
+
+        <label for="recheio">Recheio:</label>
+        <input type="text" id="recheio" name="recheio" required>
+
+        <label for="decoracao">Decoracao:</label>
+        <input type="text" id="text" name="text" required>
+
+        <button type="button" onclick="enviarFormulario('criar')">Criar</button>
+        <button type="button" onclick="enviarFormulario('listar')">Listar</button>
+        <button type="button" onclick="enviarFormulario('atualizar')">Atualizar</button>
+        <button type="button" onclick="enviarFormulario('deletar')">Deletar</button>
+    </form>
+
+    <script>
+        function enviarFormulario(acao) {
+            const form = document.getElementById('encomenda-form');
+            
+            // Definir a URL e o método de acordo com a ação
+            switch (acao) {
+                case 'criar':
+                    form.action = '/cadastrar-encomenda';
+                    form.method = 'POST';
+                    break;
+                case 'listar':
+                    form.action = '/listar-encomendas';
+                    form.method = 'GET';
+                    break;
+                case 'atualizar':
+                    form.action = '/atualizar-encomenda';
+                    form.method = 'POST';
+                    break;
+                case 'deletar':
+                    form.action = '/deletar-encomenda';
+                    form.method = 'POST';
+                    break;
+            }
+            form.submit();
+        }
+    </script>
+</body>
+</html>

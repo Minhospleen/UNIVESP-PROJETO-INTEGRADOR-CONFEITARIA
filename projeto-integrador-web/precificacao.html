@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Precificação</title>
+    <style>
+        h4 {
+            margin-bottom: 5px; /* Ajuste a margem inferior do título */
+        }
+        input[type="text"] {
+            margin-top: -5px; /* Ajuste a margem superior do campo */
+            margin-bottom: 10px; /* Controle o espaço inferior */
+        }
+    </style>
+</head>
+<body>
+    <script type="text/javascript">
+        function calcularPV() {
+            function getNumericValue(element) {
+                return parseFloat(element.value) || 0;
+            }
+
+            // Selecionando elementos por ID
+            let qO = document.getElementById("qO"); 
+            let vO = document.getElementById("vO"); 
+            let qOC = document.getElementById("qOC"); 
+            let qL = document.getElementById("qL"); 
+            let vL = document.getElementById("vL"); 
+            let qF = document.getElementById("qF"); 
+            let vF = document.getElementById("vF"); 
+            let qA = document.getElementById("qA"); 
+            let vA = document.getElementById("vA"); 
+            let qFe = document.getElementById("qFe"); 
+            let vFe = document.getElementById("vFe"); 
+            let qC = document.getElementById("qC"); 
+            let vC = document.getElementById("vC"); 
+            let qCha = document.getElementById("qCha"); 
+            let vCha = document.getElementById("vCha"); 
+            let qCho = document.getElementById("qCho"); 
+            let vCho = document.getElementById("vCho"); 
+            let qCo = document.getElementById("qCo"); 
+            let vCo = document.getElementById("vCo"); 
+            let qFr = document.getElementById("qFr"); 
+            let vFr = document.getElementById("vFr"); 
+            let qEm = document.getElementById("qEm"); 
+            let vEm = document.getElementById("vEm"); 
+            let tP = document.getElementById("tP"); 
+            let lP = document.getElementById("lP"); 
+            let L = document.getElementById("L"); 
+
+            // Calculando o custo variavel com todos os insumos
+            let custoVariavel = 
+                (getNumericValue(qO) * getNumericValue(vO) / getNumericValue(qOC)) +
+                (getNumericValue(qL) / 1000 * getNumericValue(vL)) +
+                (getNumericValue(qF) * getNumericValue(vF) / 1000) +
+                (getNumericValue(qA) * getNumericValue(vA) / 1000) +
+                (getNumericValue(qFe) * getNumericValue(vFe) / 1000) +
+                (getNumericValue(qC) * getNumericValue(vC) / 1000) +
+                (getNumericValue(qCha) * getNumericValue(vCha) / 1000) +
+                (getNumericValue(qCho) * getNumericValue(vCho) / 1000) +
+                (getNumericValue(qCo) * getNumericValue(vCo) / 1000) +
+                (getNumericValue(qFr) * getNumericValue(vFr) / 1000) +
+                (getNumericValue(qEm) * getNumericValue(vEm));
+             let custoFixo = (getNumericValue(tP) * 1.738831);
+
+                  lP = getNumericValue(L) / 100;
+            let markup = 100 / (100 - (custoFixo / 100 + custoVariavel / 100 + (1 + lP)));
+            let precoVenda = (custoFixo + custoVariavel) * markup;
+
+            // Exibindo o resultado no campo "calcularCustoTotal"
+            document.getElementById("calcularPV").value = precoVenda.toFixed(2);
+        }
+    </script>
+    
+    <h1>Precificação</h1>
+    <h4>Ovo</h4>
+    <input type="text" id="qO" placeholder="Quantidade usada: ">
+    <br>
+    <input type="text" id="vO" placeholder="Valor (R$):">
+    <br> 
+    <input type="text" id="qOC" placeholder="Quantidade comprada:">
+    <br> 
+    <h4>Leite</h4>
+    <input type="text" id="qL" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vL" placeholder="Valor do leite (R$):">
+    <br> 
+    <h4>Farinha</h4>
+    <input type="text" id="qF" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vF" placeholder="Valor da farinha (R$):">
+    <br> 
+    <h4>Açúcar</h4>
+    <input type="text" id="qA" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vA" placeholder="Valor do Açúcar (R$):">
+    <br>
+    <h4>Fermento</h4>
+    <input type="text" id="qFe" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vFe" placeholder="Valor do fermento (R$):">
+    <br>
+    <h4>Calda</h4>
+    <input type="text" id="qC" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vC" placeholder="Valor da calda (R$):">
+    <br> 
+    <h4>Chantilly</h4>
+    <input type="text" id="qCha" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vCha" placeholder="Valor da calda (R$):">
+    <br> 
+    <h4>Chocolate</h4>
+    <input type="text" id="qCho" placeholder="Quantidade usada(grama): ">
+    <br>
+    <input type="text" id="vCho" placeholder="Valor do chcolate (R$):">
+    <br> 
+    <h4>Coco</h4>
+    <input type="text" id="qCo" placeholder="Quantidade usada (grama): ">
+    <br>
+    <input type="text" id="vCo" placeholder="Valor do coco (R$):">
+    <br> 
+    <h4>Fruta</h4>
+    <input type="text" id="qFr" placeholder="Quantidade usada (grama): ">
+    <br>
+    <input type="text" id="vFr" placeholder="Valor da fruta(R$):">
+    <br>
+    <h4>Embalagem</h4>
+    <input type="text" id="qEm" placeholder="Quantidade usada (grama): ">
+    <br>
+    <input type="text" id="vEm" placeholder="Valor da Embalagem (R$):">
+    <br> 
+    <h4>Tempo de Preparo</h4>
+    <input type="text" id="tP" placeholder="Tempo em minutos: ">
+    <br>
+    <h4>Lucro</h4>
+    <input type="text" id="L" placeholder="Lucro desejado: ">
+    <br>
+
+
+    
+
+
+    
+    
+    <br>
+    <input type="button" value="Preço de venda" onclick="calcularPV()"><br>
+    <input type="text" id="calcularPV" placeholder="Preço de Venda" readonly> 
+</body>
+</html>
